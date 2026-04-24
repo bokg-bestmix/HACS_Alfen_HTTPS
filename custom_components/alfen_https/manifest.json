@@ -1,0 +1,10 @@
+{
+  "domain": "alfen_https",
+  "name": "Alfen HTTPS",
+  "version": "0.1.0",
+  "codeowners": ["@bokg-bestmix"],
+  "config_flow": true,
+  "documentation": "https://github.com/bokg-bestmix/HACS_Alfen_HTTPS",
+  "iot_class": "local_polling",
+  "requirements": []
+}

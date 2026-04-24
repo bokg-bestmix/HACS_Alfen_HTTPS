@@ -1,0 +1,24 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Alfen Charger",
+        "description": "Enter the local network details of your Alfen AHP02 charge station.",
+        "data": {
+          "host": "IP address or hostname",
+          "username": "Username",
+          "password": "Password",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the charger. Check the IP address and make sure the device is reachable.",
+      "invalid_auth": "Invalid username or password.",
+      "unknown": "Unexpected error. Check the logs for details."
+    },
+    "abort": {
+      "already_configured": "This charger is already configured."
+    }
+  }
+}
