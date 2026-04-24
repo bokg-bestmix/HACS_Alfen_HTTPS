@@ -16,38 +16,42 @@ API_STATUS = "/api/status"
 API_PROP = "/api/prop"
 
 # AHP02 property IDs
-# NOTE: verify all IDs against your device's /api/prop response before shipping
-PROP_ACTIVE_POWER = "2221_0"      # Total active power (W), sum of all phases
-PROP_ACTIVE_POWER_L1 = "2221_4"   # Active power phase L1 (W)
-PROP_ACTIVE_POWER_L2 = "2221_5"   # Active power phase L2 (W)
-PROP_ACTIVE_POWER_L3 = "2221_6"   # Active power phase L3 (W)
+
+# Voltage L-N (line to neutral) — verify IDs against device
+PROP_VOLTAGE_L1N = "2221_3"
+PROP_VOLTAGE_L2N = "2221_4"
+PROP_VOLTAGE_L3N = "2221_5"
+
+# Voltage L-L (line to line) — verify IDs against device
+PROP_VOLTAGE_L1L2 = "2221_6"
+PROP_VOLTAGE_L2L3 = "2221_7"
+PROP_VOLTAGE_L3L1 = "2221_8"
+
+# Current — verify IDs against device
+PROP_CURRENT_N  = "2212_9"
+PROP_CURRENT_L1 = "2212_A"
+PROP_CURRENT_L2 = "2212_B"
+PROP_CURRENT_L3 = "2212_C"
+
+# Frequency — verify ID against device
+PROP_FREQUENCY = "2221_12"
+
+# Active power — verify IDs against device
+PROP_ACTIVE_POWER_L1 = "2221_13"   # Active power phase L1 (W)
+PROP_ACTIVE_POWER_L2 = "2221_14"   # Active power phase L2 (W)
+PROP_ACTIVE_POWER_L3 = "2221_15"   # Active power phase L3 (W)
+PROP_ACTIVE_POWER = "2221_16"      # Total active power (W), sum of all phases
+
+PROP_ENERGY_L1 = "2221_1F"         # Cumulative energy L1 (Wh) — verify against device
+PROP_ENERGY_L2 = "2221_20"         # Cumulative energy L2 (Wh) — verify against device
+PROP_ENERGY_L3 = "2221_21"         # Cumulative energy L3 (Wh) — verify against device
+PROP_ENERGY_TOTAL = "2221_22"      # Cumulative energy all phases (Wh) — verify against device
+
+# # Disable for now until we can verify IDs against device
 PROP_SESSION_ENERGY = "2221_3"
-PROP_ENERGY_TOTAL = "2062_0"      # Cumulative energy all phases (Wh) — verify against device
-PROP_ENERGY_L1 = "2062_1"         # Cumulative energy L1 (Wh) — verify against device
-PROP_ENERGY_L2 = "2062_2"         # Cumulative energy L2 (Wh) — verify against device
-PROP_ENERGY_L3 = "2062_3"         # Cumulative energy L3 (Wh) — verify against device
 PROP_MAX_CURRENT = "2129_0"
 PROP_AVAILABILITY = "2501_0"
 PROP_CONNECTOR_STATE = "2060_0"
-
-# Voltage L-N (line to neutral) — verify IDs against device
-PROP_VOLTAGE_L1N = "2221_7"
-PROP_VOLTAGE_L2N = "2221_8"
-PROP_VOLTAGE_L3N = "2221_9"
-
-# Voltage L-L (line to line) — verify IDs against device
-PROP_VOLTAGE_L1L2 = "2221_10"
-PROP_VOLTAGE_L2L3 = "2221_11"
-PROP_VOLTAGE_L3L1 = "2221_12"
-
-# Current — verify IDs against device
-PROP_CURRENT_N  = "2212_0"
-PROP_CURRENT_L1 = "2212_1"
-PROP_CURRENT_L2 = "2212_2"
-PROP_CURRENT_L3 = "2212_3"
-
-# Frequency — verify ID against device
-PROP_FREQUENCY = "2221_16"
 
 # Connector state enum
 CONNECTOR_STATE_AVAILABLE = 0
