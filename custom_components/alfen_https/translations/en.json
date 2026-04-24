@@ -26,8 +26,29 @@
       "active_power": {
         "name": "Active Power"
       },
+      "active_power_l1": {
+        "name": "Active Power L1"
+      },
+      "active_power_l2": {
+        "name": "Active Power L2"
+      },
+      "active_power_l3": {
+        "name": "Active Power L3"
+      },
       "session_energy": {
         "name": "Session Energy"
+      },
+      "energy_total": {
+        "name": "Total Energy"
+      },
+      "energy_l1": {
+        "name": "Total Energy L1"
+      },
+      "energy_l2": {
+        "name": "Total Energy L2"
+      },
+      "energy_l3": {
+        "name": "Total Energy L3"
       },
       "connector_state": {
         "name": "Connector State",

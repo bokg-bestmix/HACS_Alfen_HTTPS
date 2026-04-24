@@ -86,8 +86,15 @@ POST  /api/prop               write property values
 Important property IDs (AHP02):
 | Property ID | Description |
 |---|---|
-| `2221_0` | Active power (W) |
+| `2221_0` | Active power total — sum of all phases (W) |
+| `2221_4` | Active power L1 (W) — **verify against device** |
+| `2221_5` | Active power L2 (W) — **verify against device** |
+| `2221_6` | Active power L3 (W) — **verify against device** |
 | `2221_3` | Session energy (Wh) |
+| `2062_0` | Cumulative energy total — all phases (Wh) — **verify against device** |
+| `2062_1` | Cumulative energy L1 (Wh) — **verify against device** |
+| `2062_2` | Cumulative energy L2 (Wh) — **verify against device** |
+| `2062_3` | Cumulative energy L3 (Wh) — **verify against device** |
 | `2129_0` | Max charge current setpoint (A) |
 | `2501_0` | Availability (enable/disable charging) |
 | `2060_0` | Connector state (enum) |

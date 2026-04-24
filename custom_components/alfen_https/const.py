@@ -16,8 +16,16 @@ API_STATUS = "/api/status"
 API_PROP = "/api/prop"
 
 # AHP02 property IDs
-PROP_ACTIVE_POWER = "2221_0"
+# NOTE: verify all IDs against your device's /api/prop response before shipping
+PROP_ACTIVE_POWER = "2221_0"       # Total active power (W), sum of all phases
+PROP_ACTIVE_POWER_L1 = "2221_4"   # Active power phase L1 (W)
+PROP_ACTIVE_POWER_L2 = "2221_5"   # Active power phase L2 (W)
+PROP_ACTIVE_POWER_L3 = "2221_6"   # Active power phase L3 (W)
 PROP_SESSION_ENERGY = "2221_3"
+PROP_ENERGY_TOTAL = "2062_0"      # Cumulative energy all phases (Wh) — verify against device
+PROP_ENERGY_L1 = "2062_1"         # Cumulative energy L1 (Wh) — verify against device
+PROP_ENERGY_L2 = "2062_2"         # Cumulative energy L2 (Wh) — verify against device
+PROP_ENERGY_L3 = "2062_3"         # Cumulative energy L3 (Wh) — verify against device
 PROP_MAX_CURRENT = "2129_0"
 PROP_AVAILABILITY = "2501_0"
 PROP_CONNECTOR_STATE = "2060_0"
