@@ -10,11 +10,12 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .api import AlfenApiError
-from .const import DOMAIN, PROP_AVAILABILITY
+from .const import DOMAIN
 from .coordinator import AlfenDataUpdateCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
+__PROP_AVAILABILITY = "2501_0"
 # Availability property values: 1 = operative (charging allowed), 2 = inoperative
 _AVAILABLE_VALUE = 1
 
@@ -35,7 +36,7 @@ class AlfenAvailabilitySwitch(CoordinatorEntity[AlfenDataUpdateCoordinator], Swi
 
     def __init__(self, coordinator: AlfenDataUpdateCoordinator) -> None:
         super().__init__(coordinator)
-        self._attr_unique_id = f"{coordinator.serial}_{PROP_AVAILABILITY}"
+        self._attr_unique_id = f"{coordinator.serial}_{_PROP_AVAILABILITY}"
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.serial)},
             "name": "Alfen Charger",
@@ -46,7 +47,7 @@ class AlfenAvailabilitySwitch(CoordinatorEntity[AlfenDataUpdateCoordinator], Swi
 
     @property
     def is_on(self) -> bool | None:
-        raw = self.coordinator.data.prop(PROP_AVAILABILITY)
+        raw = self.coordinator.data.prop(_PROP_AVAILABILITY)
         if raw is None:
             return None
         return int(raw) == _AVAILABLE_VALUE

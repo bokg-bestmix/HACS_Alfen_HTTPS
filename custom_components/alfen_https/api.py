@@ -12,8 +12,6 @@ from .const import (
     API_PROP,
     API_STATUS,
     DEFAULT_PORT,
-    PROP_AVAILABILITY,
-    PROP_MAX_CURRENT,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -118,10 +116,10 @@ class AlfenApi:
     # ------------------------------------------------------------------
 
     async def set_max_current(self, ampere: float) -> None:
-        await self._post_prop(PROP_MAX_CURRENT, ampere)
+        await self._post_prop("2129_0", ampere)
 
     async def set_availability(self, available: bool) -> None:
-        await self._post_prop(PROP_AVAILABILITY, 1 if available else 2)
+        await self._post_prop("2501_0", 1 if available else 2)
 
     # ------------------------------------------------------------------
     # Connectivity test (used by config flow)

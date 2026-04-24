@@ -22,13 +22,11 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import (
-    CONNECTOR_STATE_MAP,
     DOMAIN,
     PROP_ACTIVE_POWER,
     PROP_ACTIVE_POWER_L1,
     PROP_ACTIVE_POWER_L2,
     PROP_ACTIVE_POWER_L3,
-    PROP_CONNECTOR_STATE,
     PROP_CURRENT_L1,
     PROP_CURRENT_L2,
     PROP_CURRENT_L3,
@@ -38,7 +36,6 @@ from .const import (
     PROP_ENERGY_L3,
     PROP_ENERGY_TOTAL,
     PROP_FREQUENCY,
-    PROP_SESSION_ENERGY,
     PROP_VOLTAGE_L1L2,
     PROP_VOLTAGE_L1N,
     PROP_VOLTAGE_L2L3,
@@ -87,14 +84,6 @@ SENSOR_DESCRIPTIONS: tuple[AlfenSensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-    ),
-    AlfenSensorEntityDescription(
-        key="session_energy",
-        prop_id=PROP_SESSION_ENERGY,
-        name="Session Energy",
-        native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
-        device_class=SensorDeviceClass.ENERGY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     AlfenSensorEntityDescription(
         key="energy_total",
@@ -219,14 +208,6 @@ SENSOR_DESCRIPTIONS: tuple[AlfenSensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfFrequency.HERTZ,
         device_class=SensorDeviceClass.FREQUENCY,
         state_class=SensorStateClass.MEASUREMENT,
-    ),
-    AlfenSensorEntityDescription(
-        key="connector_state",
-        prop_id=PROP_CONNECTOR_STATE,
-        name="Connector State",
-        device_class=SensorDeviceClass.ENUM,
-        options=list(CONNECTOR_STATE_MAP.values()),
-        value_fn=lambda v: CONNECTOR_STATE_MAP.get(int(v), "unknown") if v is not None else None,
     ),
 )
 

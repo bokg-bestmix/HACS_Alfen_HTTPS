@@ -16,8 +16,6 @@ from .const import (
     PROP_ACTIVE_POWER_L1,
     PROP_ACTIVE_POWER_L2,
     PROP_ACTIVE_POWER_L3,
-    PROP_AVAILABILITY,
-    PROP_CONNECTOR_STATE,
     PROP_CURRENT_L1,
     PROP_CURRENT_L2,
     PROP_CURRENT_L3,
@@ -27,8 +25,6 @@ from .const import (
     PROP_ENERGY_L3,
     PROP_ENERGY_TOTAL,
     PROP_FREQUENCY,
-    PROP_MAX_CURRENT,
-    PROP_SESSION_ENERGY,
     PROP_VOLTAGE_L1L2,
     PROP_VOLTAGE_L1N,
     PROP_VOLTAGE_L2L3,
@@ -39,6 +35,10 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
+# Property IDs not exported from const (unverified) but still polled for control entities
+_PROP_MAX_CURRENT = "2129_0"
+_PROP_AVAILABILITY = "2501_0"
+
 _POLLED_PROPS = [
     # Power
     PROP_ACTIVE_POWER,
@@ -46,7 +46,6 @@ _POLLED_PROPS = [
     PROP_ACTIVE_POWER_L2,
     PROP_ACTIVE_POWER_L3,
     # Energy
-    PROP_SESSION_ENERGY,
     PROP_ENERGY_TOTAL,
     PROP_ENERGY_L1,
     PROP_ENERGY_L2,
@@ -66,10 +65,9 @@ _POLLED_PROPS = [
     PROP_CURRENT_L3,
     # Frequency
     PROP_FREQUENCY,
-    # Control
-    PROP_MAX_CURRENT,
-    PROP_AVAILABILITY,
-    PROP_CONNECTOR_STATE,
+    # Control (unverified IDs, polled for entity state)
+    _PROP_MAX_CURRENT,
+    _PROP_AVAILABILITY,
 ]
 
 

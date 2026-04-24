@@ -47,12 +47,6 @@ PROP_ENERGY_L2 = "2221_20"         # Cumulative energy L2 (Wh) — verify agains
 PROP_ENERGY_L3 = "2221_21"         # Cumulative energy L3 (Wh) — verify against device
 PROP_ENERGY_TOTAL = "2221_22"      # Cumulative energy all phases (Wh) — verify against device
 
-# # Disable for now until we can verify IDs against device
-PROP_SESSION_ENERGY = "2221_3"
-PROP_MAX_CURRENT = "2129_0"
-PROP_AVAILABILITY = "2501_0"
-PROP_CONNECTOR_STATE = "2060_0"
-
 # Connector state enum
 CONNECTOR_STATE_AVAILABLE = 0
 CONNECTOR_STATE_PREPARING = 1

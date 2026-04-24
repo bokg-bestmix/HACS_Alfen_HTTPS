@@ -11,8 +11,10 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .api import AlfenApiError
-from .const import DOMAIN, PROP_MAX_CURRENT
+from .const import DOMAIN
 from .coordinator import AlfenDataUpdateCoordinator
+
+__PROP_MAX_CURRENT = "2129_0"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -43,7 +45,7 @@ class AlfenMaxCurrentNumber(CoordinatorEntity[AlfenDataUpdateCoordinator], Numbe
 
     def __init__(self, coordinator: AlfenDataUpdateCoordinator) -> None:
         super().__init__(coordinator)
-        self._attr_unique_id = f"{coordinator.serial}_{PROP_MAX_CURRENT}"
+        self._attr_unique_id = f"{coordinator.serial}_{_PROP_MAX_CURRENT}"
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.serial)},
             "name": "Alfen Charger",
@@ -54,7 +56,7 @@ class AlfenMaxCurrentNumber(CoordinatorEntity[AlfenDataUpdateCoordinator], Numbe
 
     @property
     def native_value(self) -> float | None:
-        raw = self.coordinator.data.prop(PROP_MAX_CURRENT)
+        raw = self.coordinator.data.prop(_PROP_MAX_CURRENT)
         if raw is None:
             return None
         try:
