@@ -50,6 +50,17 @@
       "energy_l3": {
         "name": "Total Energy L3"
       },
+      "voltage_l1n": { "name": "Voltage L1-N" },
+      "voltage_l2n": { "name": "Voltage L2-N" },
+      "voltage_l3n": { "name": "Voltage L3-N" },
+      "voltage_l1l2": { "name": "Voltage L1-L2" },
+      "voltage_l2l3": { "name": "Voltage L2-L3" },
+      "voltage_l3l1": { "name": "Voltage L3-L1" },
+      "current_n": { "name": "Current N" },
+      "current_l1": { "name": "Current L1" },
+      "current_l2": { "name": "Current L2" },
+      "current_l3": { "name": "Current L3" },
+      "frequency": { "name": "Frequency" },
       "connector_state": {
         "name": "Connector State",
         "state": {

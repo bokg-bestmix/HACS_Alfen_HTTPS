@@ -17,7 +17,7 @@ API_PROP = "/api/prop"
 
 # AHP02 property IDs
 # NOTE: verify all IDs against your device's /api/prop response before shipping
-PROP_ACTIVE_POWER = "2221_0"       # Total active power (W), sum of all phases
+PROP_ACTIVE_POWER = "2221_0"      # Total active power (W), sum of all phases
 PROP_ACTIVE_POWER_L1 = "2221_4"   # Active power phase L1 (W)
 PROP_ACTIVE_POWER_L2 = "2221_5"   # Active power phase L2 (W)
 PROP_ACTIVE_POWER_L3 = "2221_6"   # Active power phase L3 (W)
@@ -29,6 +29,25 @@ PROP_ENERGY_L3 = "2062_3"         # Cumulative energy L3 (Wh) — verify against
 PROP_MAX_CURRENT = "2129_0"
 PROP_AVAILABILITY = "2501_0"
 PROP_CONNECTOR_STATE = "2060_0"
+
+# Voltage L-N (line to neutral) — verify IDs against device
+PROP_VOLTAGE_L1N = "2221_7"
+PROP_VOLTAGE_L2N = "2221_8"
+PROP_VOLTAGE_L3N = "2221_9"
+
+# Voltage L-L (line to line) — verify IDs against device
+PROP_VOLTAGE_L1L2 = "2221_10"
+PROP_VOLTAGE_L2L3 = "2221_11"
+PROP_VOLTAGE_L3L1 = "2221_12"
+
+# Current — verify IDs against device
+PROP_CURRENT_N  = "2212_0"
+PROP_CURRENT_L1 = "2212_1"
+PROP_CURRENT_L2 = "2212_2"
+PROP_CURRENT_L3 = "2212_3"
+
+# Frequency — verify ID against device
+PROP_FREQUENCY = "2221_16"
 
 # Connector state enum
 CONNECTOR_STATE_AVAILABLE = 0

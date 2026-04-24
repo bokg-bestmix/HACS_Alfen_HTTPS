@@ -10,7 +10,13 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfEnergy, UnitOfPower
+from homeassistant.const import (
+    UnitOfElectricCurrent,
+    UnitOfElectricPotential,
+    UnitOfEnergy,
+    UnitOfFrequency,
+    UnitOfPower,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -23,11 +29,22 @@ from .const import (
     PROP_ACTIVE_POWER_L2,
     PROP_ACTIVE_POWER_L3,
     PROP_CONNECTOR_STATE,
+    PROP_CURRENT_L1,
+    PROP_CURRENT_L2,
+    PROP_CURRENT_L3,
+    PROP_CURRENT_N,
     PROP_ENERGY_L1,
     PROP_ENERGY_L2,
     PROP_ENERGY_L3,
     PROP_ENERGY_TOTAL,
+    PROP_FREQUENCY,
     PROP_SESSION_ENERGY,
+    PROP_VOLTAGE_L1L2,
+    PROP_VOLTAGE_L1N,
+    PROP_VOLTAGE_L2L3,
+    PROP_VOLTAGE_L2N,
+    PROP_VOLTAGE_L3L1,
+    PROP_VOLTAGE_L3N,
 )
 from .coordinator import AlfenCoordinatorData, AlfenDataUpdateCoordinator
 
@@ -110,6 +127,98 @@ SENSOR_DESCRIPTIONS: tuple[AlfenSensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
         state_class=SensorStateClass.TOTAL_INCREASING,
+    ),
+    # Voltage L-N
+    AlfenSensorEntityDescription(
+        key="voltage_l1n",
+        prop_id=PROP_VOLTAGE_L1N,
+        name="Voltage L1-N",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    AlfenSensorEntityDescription(
+        key="voltage_l2n",
+        prop_id=PROP_VOLTAGE_L2N,
+        name="Voltage L2-N",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    AlfenSensorEntityDescription(
+        key="voltage_l3n",
+        prop_id=PROP_VOLTAGE_L3N,
+        name="Voltage L3-N",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    # Voltage L-L
+    AlfenSensorEntityDescription(
+        key="voltage_l1l2",
+        prop_id=PROP_VOLTAGE_L1L2,
+        name="Voltage L1-L2",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    AlfenSensorEntityDescription(
+        key="voltage_l2l3",
+        prop_id=PROP_VOLTAGE_L2L3,
+        name="Voltage L2-L3",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    AlfenSensorEntityDescription(
+        key="voltage_l3l1",
+        prop_id=PROP_VOLTAGE_L3L1,
+        name="Voltage L3-L1",
+        native_unit_of_measurement=UnitOfElectricPotential.VOLT,
+        device_class=SensorDeviceClass.VOLTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    # Current
+    AlfenSensorEntityDescription(
+        key="current_n",
+        prop_id=PROP_CURRENT_N,
+        name="Current N",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    AlfenSensorEntityDescription(
+        key="current_l1",
+        prop_id=PROP_CURRENT_L1,
+        name="Current L1",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    AlfenSensorEntityDescription(
+        key="current_l2",
+        prop_id=PROP_CURRENT_L2,
+        name="Current L2",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    AlfenSensorEntityDescription(
+        key="current_l3",
+        prop_id=PROP_CURRENT_L3,
+        name="Current L3",
+        native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
+        device_class=SensorDeviceClass.CURRENT,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    # Frequency
+    AlfenSensorEntityDescription(
+        key="frequency",
+        prop_id=PROP_FREQUENCY,
+        name="Frequency",
+        native_unit_of_measurement=UnitOfFrequency.HERTZ,
+        device_class=SensorDeviceClass.FREQUENCY,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     AlfenSensorEntityDescription(
         key="connector_state",
